@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web app</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="board">
+        <div class="grid"></div>
+        <div class="numbers"></div>
+        <div class="snakes">
+          <img class="s1" src="./assets/snakes/snake-1.svg" alt="snake image" />
+          <img class="s2" src="./assets/snakes/snake-2.svg" alt="snake image" />
+          <img class="s3" src="./assets/snakes/snake-3.svg" alt="snake image" />
+          <img class="s4" src="./assets/snakes/snake-4.svg" alt="snake image" />
+          <img class="s5" src="./assets/snakes/snake-5.svg" alt="snake image" />
+          <img class="s6" src="./assets/snakes/snake-6.svg" alt="snake image" />
+          <img class="s7" src="./assets/snakes/snake-7.svg" alt="snake image" />
+          <img class="s8" src="./assets/snakes/snake-8.svg" alt="snake image" />
+          <img class="s9" src="./assets/snakes/snake-9.svg" alt="snake image" />
+          <img
+            class="s10"
+            src="./assets/snakes/snake-10.svg"
+            alt="snake image"
+          />
+        </div>
+
+        <div class="ladders">
+          <img class="l1" src="./assets/ladders/ladder-1.svg" alt="ladder" />
+          <img class="l2" src="./assets/ladders/ladder-2.svg" alt="ladder" />
+          <img class="l3" src="./assets/ladders/ladder-3.svg" alt="ladder" />
+          <img class="l4" src="./assets/ladders/ladder-4.svg" alt="ladder" />
+          <img class="l5" src="./assets/ladders/ladder-5.svg" alt="ladder" />
+          <img class="l6" src="./assets/ladders/ladder-6.svg" alt="ladder" />
+          <img class="l7" src="./assets/ladders/ladder-7.svg" alt="ladder" />
+          <img class="l8" src="./assets/ladders/ladder-8.svg" alt="ladder" />
+          <img class="l9" src="./assets/ladders/ladder-9.svg" alt="ladder" />
+          <img class="l10" src="./assets/ladders/ladder-10.svg" alt="ladder" />
+          <img class="l11" src="./assets/ladders/ladder-11.svg" alt="ladder" />
+        </div>
+      </div>
+
+      <div class="dice">
+        <p class="num">0</p>
+        <button class="roll" onclick="roll()">Roll</button>
+        <div class="diceObj"></div>
+      </div>
+
+      <div class="play-grid">
+        <div class="player"></div>
+      </div>
+    </div>
+
+    <div class="positive-modal hidden">
+      <div class="wrap">
+        <div class="modWrap">
+          <div class="modHead">
+            <p class="headCont">You found a ladder!</p>
+          </div>
+          <p class="content">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
+            provident repellat nostrum nam, incidunt, accusantium aliquam, ullam
+            consectetur perferendis nemo commodi! Ad fuga corporis aliquid ipsum
+            doloremque, velit nulla minus?
+          </p>
+          <button onclick="closePositiveNews()">Move up</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="negative-modal hidden">
+      <div class="wrap">
+        <div class="modWrap">
+          <div class="modHead">
+            <p class="headCont">A snake bit you!</p>
+          </div>
+          <p class="content">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
+            provident repellat nostrum nam, incidunt, accusantium aliquam, ullam
+            consectetur perferendis nemo commodi! Ad fuga corporis aliquid ipsum
+            doloremque, velit nulla minus?
+          </p>
+          <button onclick="closeNegativeNews()">Go down</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="win-modal hidden">
+      <div class="wrap">
+        <div class="modWrap">
+          <div class="modHead">
+            <p class="headCont">You did it!</p>
+          </div>
+          <p class="content">
+            You did a great job on completing this game! But, this is not the
+            end. There are more ladders to climb, snakes to be bitten by and
+            news to be learnt. Happy journey!
+          </p>
+          <button onclick="reset()">Play again</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="name">By Adarsh Ravikumar 9 C</p>
+  </body>
+</html>

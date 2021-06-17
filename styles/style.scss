@@ -1,0 +1,622 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Dosis;
+}
+
+body {
+  background: rgb(212, 250, 253);
+}
+
+$board-resolution: 43vw;
+$grid-resolution: 4.3vw;
+
+.grid,
+.play-grid,
+.numbers,
+.snakes,
+.ladders {
+  display: grid;
+  grid-template-columns: repeat(10, $grid-resolution);
+  grid-template-rows: repeat(10, $grid-resolution);
+  height: $board-resolution;
+  width: $board-resolution;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.numbers {
+  p {
+    color: rgb(48, 48, 48);
+    place-self: left;
+    padding: 0.2rem;
+    font-size: 0.9em;
+    font-family: Dosis;
+  }
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 93%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    width: 20vw;
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: rgb(15, 88, 90);
+    color: white;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: rgb(11, 63, 65);
+    }
+  }
+}
+
+.lg {
+  background: hsl(187, 94%, 72%);
+  color: white;
+  border: 1px solid rgb(143, 143, 143);
+}
+
+.dg {
+  background: hsl(192, 86%, 69%);
+  color: white;
+  border: 1px solid rgb(143, 143, 143);
+}
+
+.player {
+  background: rgb(211, 131, 131);
+  position: relative;
+  transform: translate(-200%, 1800%);
+  border-radius: 100%;
+  opacity: 1;
+  height: 50%;
+  width: 50%;
+  border: 2px solid rgb(158, 108, 108);
+  place-self: center;
+  transition: transform 0.5s ease;
+}
+
+// Snakes
+.snakes {
+  * {
+    position: relative;
+  }
+
+  .s1 {
+    width: 8vw;
+    top: 820%;
+    left: 410%;
+  }
+
+  .s2 {
+    width: 8vw;
+    top: 540%;
+    left: 650%;
+  }
+
+  .s3 {
+    width: 9vw;
+    top: 540%;
+    left: 160%;
+  }
+
+  .s4 {
+    width: 12vw;
+    top: 340%;
+    left: -250%;
+  }
+
+  .s5 {
+    width: 9vw;
+    top: 340%;
+    left: -300%;
+  }
+
+  .s6 {
+    width: 8vw;
+    top: 130%;
+    left: 220%;
+  }
+
+  .s7 {
+    width: 6.5vw;
+    top: 30%;
+    left: 100%;
+  }
+
+  .s8 {
+    width: 9vw;
+    top: 230%;
+    left: -150%;
+  }
+
+  .s9 {
+    width: 6vw;
+    top: 40%;
+    left: -380%;
+  }
+
+  .s10 {
+    width: 6vw;
+    top: 30%;
+    left: -850%;
+  }
+}
+
+// Ladders
+.ladders {
+  * {
+    position: relative;
+  }
+
+  .l1 {
+    height: 15vw;
+    top: 640%;
+    left: 130%;
+  }
+
+  .l2 {
+    height: 6.5vw;
+    top: 830%;
+    left: 530%;
+  }
+
+  .l3 {
+    height: 15vw;
+    top: 640%;
+    left: 540%;
+  }
+
+  .l4 {
+    height: 6vw;
+    top: 720%;
+    left: 230%;
+  }
+
+  .l5 {
+    height: 10vw;
+    top: 550%;
+    left: -380%;
+  }
+
+  .l6 {
+    height: 5.5vw;
+    top: 550%;
+    left: -150%;
+  }
+
+  .l7 {
+    height: 7vw;
+    transform: rotate(-3deg);
+    top: 330%;
+    left: 60%;
+  }
+
+  .l8 {
+    height: 9vw;
+    top: 50%;
+    left: -470%;
+  }
+
+  .l9 {
+    height: 9vw;
+    top: 50%;
+    left: 120%;
+  }
+
+  .l10 {
+    height: 6vw;
+    top: 30%;
+    left: -280%;
+  }
+
+  .l11 {
+    height: 29vw;
+    transform: rotate(-2deg);
+    top: 30%;
+    left: 350%;
+  }
+}
+
+// Modal
+.hidden {
+  display: none;
+}
+
+.visible {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+
+  .wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .modWrap {
+    width: 50vw;
+    height: 25vw;
+    background: white;
+    border-radius: 2vw;
+    position: relative;
+
+    .modHead {
+      width: 100%;
+      height: 20%;
+      background: rgb(3, 162, 190);
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3vmax;
+      color: white;
+    }
+
+    .content {
+      margin-top: 5%;
+      margin-left: 5%;
+      width: 85%;
+      font-size: 1.7vmax;
+    }
+
+    button {
+      width: 20%;
+      height: 10%;
+      outline: none;
+      border: none;
+      margin-left: 5%;
+      margin-top: 7%;
+      color: white;
+      background: rgb(3, 162, 190);
+      font-size: 1.7vmax;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  // $board: 48vw;
+  .grid,
+  .play-grid,
+  .numbers,
+  .snakes,
+  .ladders {
+    grid-template-columns: repeat(10, 5.8vw);
+    grid-template-rows: repeat(10, 5.8vw);
+    height: 58vw;
+    width: 58vw;
+  }
+
+  .ladders {
+    .l1 {
+      height: 19vw;
+    }
+    .l2 {
+      height: 8.3vw;
+    }
+    .l3 {
+      height: 19vw;
+    }
+    .l4 {
+      height: 8vw;
+    }
+    .l5 {
+      height: 12vw;
+    }
+    .l6 {
+      height: 7vw;
+    }
+    .l7 {
+      height: 9vw;
+    }
+    .l8 {
+      height: 12vw;
+    }
+    .l9 {
+      height: 12vw;
+    }
+    .l10 {
+      height: 8vw;
+    }
+    .l11 {
+      height: 38vw;
+    }
+  }
+
+  .snakes {
+    .s1 {
+      width: 10vw;
+    }
+
+    .s2 {
+      width: 10vw;
+    }
+
+    .s3 {
+      width: 11.5vw;
+    }
+
+    .s4 {
+      width: 17vw;
+    }
+
+    .s5 {
+      width: 12vw;
+    }
+
+    .s6 {
+      width: 10vw;
+    }
+
+    .s7 {
+      width: 8vw;
+    }
+
+    .s8 {
+      width: 11vw;
+    }
+
+    .s9 {
+      width: 8vw;
+    }
+
+    .s10 {
+      width: 8vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .grid,
+  .play-grid,
+  .numbers,
+  .snakes,
+  .ladders {
+    grid-template-columns: repeat(10, 6.2vw);
+    grid-template-rows: repeat(10, 6.2vw);
+    height: 62vw;
+    width: 62vw;
+  }
+
+  .ladders {
+    .l1 {
+      height: 20vw;
+    }
+    .l2 {
+      height: 8.3vw;
+    }
+    .l3 {
+      height: 19vw;
+    }
+    .l4 {
+      height: 8vw;
+    }
+    .l5 {
+      height: 12vw;
+    }
+    .l6 {
+      height: 7vw;
+    }
+    .l7 {
+      height: 9vw;
+    }
+    .l8 {
+      height: 12vw;
+    }
+    .l9 {
+      height: 12vw;
+    }
+    .l10 {
+      height: 8vw;
+    }
+    .l11 {
+      height: 40vw;
+    }
+  }
+
+  .snakes {
+    .s1 {
+      width: 10vw;
+    }
+
+    .s2 {
+      width: 10vw;
+    }
+
+    .s3 {
+      width: 11.5vw;
+    }
+
+    .s4 {
+      width: 17vw;
+    }
+
+    .s5 {
+      width: 12vw;
+    }
+
+    .s6 {
+      width: 10vw;
+    }
+
+    .s7 {
+      width: 8vw;
+    }
+
+    .s8 {
+      width: 11vw;
+    }
+
+    .s9 {
+      width: 8vw;
+    }
+
+    .s10 {
+      width: 8vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .visible {
+    .modWrap {
+      width: 60vw;
+      height: 35vw;
+    }
+  }
+
+  .name {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .grid,
+  .play-grid,
+  .numbers,
+  .snakes,
+  .ladders {
+    grid-template-columns: repeat(10, 8.5vw);
+    grid-template-rows: repeat(10, 8.5vw);
+    height: 85vw;
+    width: 85vw;
+  }
+
+  .numbers {
+    p {
+      font-size: 9px;
+    }
+  }
+
+  .ladders {
+    .l1 {
+      height: 27vw;
+    }
+    .l2 {
+      height: 10vw;
+    }
+    .l3 {
+      height: 26vw;
+    }
+    .l4 {
+      height: 11vw;
+    }
+    .l5 {
+      height: 15vw;
+    }
+    .l6 {
+      height: 9vw;
+    }
+    .l7 {
+      height: 13vw;
+    }
+    .l8 {
+      height: 18vw;
+    }
+    .l9 {
+      height: 18vw;
+    }
+    .l10 {
+      height: 10vw;
+    }
+    .l11 {
+      height: 55vw;
+    }
+  }
+
+  .snakes {
+    .s1 {
+      width: 14vw;
+    }
+
+    .s2 {
+      width: 16vw;
+    }
+
+    .s3 {
+      width: 16.5vw;
+    }
+
+    .s4 {
+      width: 25vw;
+    }
+
+    .s5 {
+      width: 18vw;
+    }
+
+    .s6 {
+      width: 14vw;
+    }
+
+    .s7 {
+      width: 13vw;
+    }
+
+    .s8 {
+      width: 16vw;
+    }
+
+    .s9 {
+      width: 11vw;
+    }
+
+    .s10 {
+      width: 12vw;
+    }
+  }
+
+  .visible {
+    .modWrap {
+      width: 70vw;
+      height: 40vw;
+    }
+  }
+
+  .name {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .visible {
+    .modWrap {
+      width: 80vw;
+      height: 45vw;
+    }
+  }
+}
