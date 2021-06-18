@@ -7,6 +7,8 @@
 
 //#region Variables
 
+window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
 //Positive modal
 let posMod = document.querySelector(".positive-modal");
 let pX = 0;
