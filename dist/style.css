@@ -280,7 +280,7 @@ body {
   margin-top: 5%;
   margin-left: 5%;
   width: 85%;
-  font-size: 1.7vmax;
+  font-size: 0.7rem;
 }
 
 .visible .modWrap button {
@@ -289,10 +289,10 @@ body {
   outline: none;
   border: none;
   margin-left: 5%;
-  margin-top: 2%;
+  margin-top: 3%;
   color: white;
   background: #03a2be;
-  font-size: 1.7vmax;
+  font-size: 0.7rem;
   border-radius: 5px;
   cursor: pointer;
 }
