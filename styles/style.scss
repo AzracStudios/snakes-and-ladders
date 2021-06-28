@@ -267,7 +267,7 @@ $grid-resolution: 4.3vw;
   }
   .modWrap {
     width: 50vw;
-    height: 25vw;
+    height: 28vw;
     background: white;
     border-radius: 2vw;
     position: relative;
@@ -289,7 +289,7 @@ $grid-resolution: 4.3vw;
       margin-top: 5%;
       margin-left: 5%;
       width: 85%;
-      font-size: 0.7rem;
+      font-size: 1.45vmax;
     }
 
     button {
@@ -301,7 +301,7 @@ $grid-resolution: 4.3vw;
       margin-top: 3%;
       color: white;
       background: rgb(3, 162, 190);
-      font-size: 0.7rem;
+      font-size: 1.4vmax;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -495,7 +495,7 @@ $grid-resolution: 4.3vw;
   .visible {
     .modWrap {
       width: 60vw;
-      height: 35vw;
+      height: 37vw;
     }
   }
 
@@ -603,7 +603,7 @@ $grid-resolution: 4.3vw;
   .visible {
     .modWrap {
       width: 70vw;
-      height: 40vw;
+      height: 42vw;
     }
   }
 
@@ -616,7 +616,7 @@ $grid-resolution: 4.3vw;
   .visible {
     .modWrap {
       width: 80vw;
-      height: 45vw;
+      height: 47vw;
     }
   }
 }

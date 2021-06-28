@@ -257,7 +257,7 @@ body {
 
 .visible .modWrap {
   width: 50vw;
-  height: 25vw;
+  height: 28vw;
   background: white;
   border-radius: 2vw;
   position: relative;
@@ -280,7 +280,7 @@ body {
   margin-top: 5%;
   margin-left: 5%;
   width: 85%;
-  font-size: 0.7rem;
+  font-size: 1.45vmax;
 }
 
 .visible .modWrap button {
@@ -292,7 +292,7 @@ body {
   margin-top: 3%;
   color: white;
   background: #03a2be;
-  font-size: 0.7rem;
+  font-size: 1.4vmax;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -452,7 +452,7 @@ body {
 @media only screen and (max-width: 700px) {
   .visible .modWrap {
     width: 60vw;
-    height: 35vw;
+    height: 37vw;
   }
   .name {
     font-size: 14px;
@@ -538,7 +538,7 @@ body {
   }
   .visible .modWrap {
     width: 70vw;
-    height: 40vw;
+    height: 42vw;
   }
   .name {
     font-size: 12px;
@@ -548,7 +548,7 @@ body {
 @media only screen and (max-width: 450px) {
   .visible .modWrap {
     width: 80vw;
-    height: 45vw;
+    height: 47vw;
   }
 }
 /*# sourceMappingURL=style.css.map */
