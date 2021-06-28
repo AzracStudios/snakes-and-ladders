@@ -183,9 +183,6 @@ async function endGame() {
   winModal.classList.add("visible");
 }
 
-let snakes = 0;
-let ladders = 0;
-
 async function player() {
   if (playerX < 9 && flip == false && gameOver == false) {
     playerX += rolledNum;
@@ -377,7 +374,7 @@ let negative = [
   [
     "Chinese scientists have set a new world record of achieving a plasma temperature of 120 million degrees Celsius for 101 seconds in the latest experiment on Friday, a key step toward the test running of a fusion reactor. The breakthrough was announced by Gong Xianzu, a researcher at the Institute of Plasma Physics of the Chinese Academy of Sciences (ASIPP), who is in charge of the experiment conducted in Hefei, capital of east China's Anhui Province.",
     "North Korea is facing a severe food crisis with prices of essential commodities shooting through the roof. Prices of essential food items have skyrocketed in country's capital Pyongyang, with a kg of bananas selling for $45, a packet of black tea for $70 and a packet of coffee for $100.",
-    "China's plan to acquire the parts of Indian Ocean by taking over the projects of Sri Lankan port city developement. This makes  India pay high tax while passing the Sri  Lankan ports."
+    "China's plan to acquire the parts of Indian Ocean by taking over the projects of Sri Lankan port city developement. This makes  India pay high tax while passing the Sri  Lankan ports.",
   ],
 ];
 let pI = 0;
@@ -395,11 +392,8 @@ async function displayPositiveNews(x, y) {
   posContent.innerText = positive[randI][pI];
   pX = x;
   pY = y;
-  console.log(pI, randI, positive.length);
   let check =
     pI <= positive[randI].length - 1 ? pI++ : (pI = positive[randI].length - 1);
-
-  ladders++;
 }
 
 function closePositiveNews() {
@@ -419,7 +413,6 @@ async function displayNegativeNews(x, y) {
   nY = y;
   let check =
     nI <= negative[randI].length ? nI++ : (nI = negative[randI].length);
-  snakes++;
 }
 
 function closeNegativeNews() {
@@ -437,16 +430,12 @@ function reset() {
   winModal.classList.remove("visible");
   winModal.classList.add("hidden");
 
-  console.log(ladders, snakes);
-
   // Player
   move(0, 9);
   flip = false;
   gameOver = false;
   pI = 0;
   nI = 0;
-  snakes = 0;
-  ladders = 0;
 
   // Dice
   rolledNum = 0;
